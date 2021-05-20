@@ -15,7 +15,7 @@ class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorVie
 
     private fun setListeners() {
 
-        binding.b1.setOnClickListener {numberClick("1")}
+        binding.b1.setOnClickListener {}
         binding.b2.setOnClickListener {}
         binding.b3.setOnClickListener {}
         binding.b4.setOnClickListener {}
