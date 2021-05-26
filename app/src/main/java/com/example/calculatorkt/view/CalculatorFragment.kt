@@ -2,7 +2,7 @@ package com.example.calculatorkt.view
 
 import android.os.Bundle
 import android.view.View
-import com.example.calculatorkt.BaseFragment
+import com.example.calculatorkt.base.BaseFragment
 import com.example.calculatorkt.databinding.FragmentCalculatorBinding
 
 class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorViewModel>(FragmentCalculatorBinding::inflate, CalculatorViewModel::class.java) {
