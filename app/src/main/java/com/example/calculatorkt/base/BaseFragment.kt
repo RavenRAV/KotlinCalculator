@@ -1,4 +1,4 @@
-package com.example.calculatorkt
+package com.example.calculatorkt.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.example.calculatorkt.base.BaseViewModel
 
 abstract class BaseFragment<Binding: ViewBinding, VM: BaseViewModel>
     (private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> Binding, className: Class<VM>): Fragment() {
@@ -24,7 +23,7 @@ abstract class BaseFragment<Binding: ViewBinding, VM: BaseViewModel>
         return binding.root
     }
 
-    override fun onDestroyView() {
+    override fun onDestroyView( ) {
         super.onDestroyView()
         _binding = null
     }
