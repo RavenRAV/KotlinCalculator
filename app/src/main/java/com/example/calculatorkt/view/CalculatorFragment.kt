@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.example.calculatorkt.BaseFragment
 import com.example.calculatorkt.databinding.FragmentCalculatorBinding
-import kotlinx.coroutines.launch
 
 class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorViewModel>(FragmentCalculatorBinding::inflate, CalculatorViewModel::class.java) {
 
@@ -15,7 +14,7 @@ class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorVie
 
     private fun setListeners() {
 
-        binding.b1.setOnClickListener {}
+        binding.b1.setOnClickListener { }
         binding.b2.setOnClickListener {}
         binding.b3.setOnClickListener {}
         binding.b4.setOnClickListener {}
@@ -47,8 +46,13 @@ class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorVie
         }
 
         binding.containerForResult.setOnClickListener {
+            if (binding.containerForButtons.visibility == View.VISIBLE){
             binding.containerForButtons.visibility = View.GONE
             binding.containerForHistory.visibility = View.VISIBLE
+            }else{
+                binding.containerForButtons.visibility = View.VISIBLE
+                binding.containerForHistory.visibility = View.GONE
+            }
         }
 
         binding.closeHistory.setOnClickListener {
