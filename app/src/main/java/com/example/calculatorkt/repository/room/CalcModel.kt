@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class CalcModel(
     @PrimaryKey val id: Int,
-    val result: String?,
-    val action: String?
+    val math: String?,
+    val result: String?
+
 )

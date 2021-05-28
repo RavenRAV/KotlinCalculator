@@ -5,208 +5,48 @@ import android.view.View
 import com.example.calculatorkt.base.BaseFragment
 import com.example.calculatorkt.databinding.FragmentCalculatorBinding
 
-class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorViewModel>(FragmentCalculatorBinding::inflate, CalculatorViewModel::class.java) {
+class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorViewModel>(FragmentCalculatorBinding::inflate, CalculatorViewModel::class.java), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setListeners()
+
+        setupUI()
+        setupObserve()
     }
 
-    private fun setListeners() {
+    private fun setupUI() {
+        binding.b1.setOnClickListener(this)
+        binding.b2.setOnClickListener(this)
+        binding.b3.setOnClickListener(this)
+        binding.b4.setOnClickListener(this)
+        binding.b5.setOnClickListener(this)
+        binding.b6.setOnClickListener(this)
+        binding.b7.setOnClickListener(this)
+        binding.b8.setOnClickListener(this)
+        binding.b9.setOnClickListener(this)
+        binding.b0.setOnClickListener(this)
+        binding.b00.setOnClickListener(this)
 
-        binding.b1.setOnClickListener { }
-        binding.b2.setOnClickListener {}
-        binding.b3.setOnClickListener {}
-        binding.b4.setOnClickListener {}
-        binding.b5.setOnClickListener {}
-        binding.b6.setOnClickListener {}
-        binding.b7.setOnClickListener {}
-        binding.b8.setOnClickListener {}
-        binding.b9.setOnClickListener {}
-        binding.b0.setOnClickListener {}
-        binding.b00.setOnClickListener {}
-
-        binding.plus.setOnClickListener { }
-        binding.minus.setOnClickListener { binding.action.text = "-" }
-        binding.multiply.setOnClickListener { binding.action.text = "x" }
-        binding.dev.setOnClickListener { binding.action.text = "÷" }
-        binding.equally.setOnClickListener {}
-        binding.clear.setOnClickListener {
-            binding.action.text = ""
-            binding.result.text = ""
-            binding.enteredValue.text = ""
-        }
-
-        binding.backspace.setOnClickListener{
-            var res: String = binding.enteredValue.text.toString()
-            if(res.isNotEmpty()){
-                res = res.substring(0, res.length - 1)
-                binding.enteredValue.text = res
-            }
-        }
-
-        binding.containerForResult.setOnClickListener {
-            if (binding.containerForButtons.visibility == View.VISIBLE){
-            binding.containerForButtons.visibility = View.GONE
-            binding.containerForHistory.visibility = View.VISIBLE
-            }else{
-                binding.containerForButtons.visibility = View.VISIBLE
-                binding.containerForHistory.visibility = View.GONE
-            }
-        }
-
-        binding.closeHistory.setOnClickListener {
-            binding.containerForButtons.visibility = View.VISIBLE
-            binding.containerForHistory.visibility = View.GONE
-        }
-
+        binding.plus.setOnClickListener(this)
+        binding.minus.setOnClickListener(this)
+        binding.multiply.setOnClickListener(this)
+        binding.dev.setOnClickListener(this)
+        binding.equally.setOnClickListener(this)
+        binding.clear.setOnClickListener(this)
+        binding.backspace.setOnClickListener(this)
     }
 
-
-
-    private fun numberClick(num: String) {
-        if (binding.action.text.isEmpty()) {
-            binding.enteredValue.append(binding.enteredValue.append(num).toString())
+    private fun setupObserve() {
+        viewModel.resultLiveData.observe(viewLifecycleOwner) {
+            binding.result.text = it
         }
-        if (!binding.action.text.isEmpty()) {
-            binding.result.text = binding.enteredValue.text.toString()
+
+        viewModel.mathLiveData.observe(viewLifecycleOwner) {
+            binding.enteredValue.text = it
         }
-    }// выдает знчение+kotlin.Unit
+    }
 
-
+    override fun onClick(view: View?) {
+        view?.id?.let { id -> viewModel.onClick(id) }
+    }
 }
-
-
-//    private fun setListeners() {
-//        binding.b1.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b1.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.append("1")
-//            }
-//        }
-//        binding.b2.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b2.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "2"
-//            }
-//        }
-//        binding.b3.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b3.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "3"
-//            }
-//        }
-//        binding.b4.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b4.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "4"
-//            }
-//        }
-//        binding.b5.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b5.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "5"
-//            }
-//        }
-//        binding.b6.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b6.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "6"
-//            }
-//        }
-//        binding.b7.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b7.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "7"
-//            }
-//        }
-//        binding.b8.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b8.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "8"
-//            }
-//        }
-//        binding.b9.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b9.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "9"
-//            }
-//        }
-//        binding.b0.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                binding.enteredValue.append(binding.b0.text.toString())
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                binding.result.text = binding.enteredValue.text.toString()
-//                binding.enteredValue.text = "0"
-//            }
-//        }
-//        binding.b00.setOnClickListener {
-//            if (binding.action.text.isEmpty()) {
-//                if (!binding.enteredValue.text.isEmpty()) {
-//                    binding.enteredValue.append(binding.b00.text.toString())
-//                }
-//            }
-//            if (!binding.action.text.isEmpty()) {
-//                if (!binding.enteredValue.text.isEmpty()) {
-//                    binding.result.text = binding.enteredValue.text.toString()
-//                    binding.enteredValue.text = "0"
-//                }
-//            }
-//        }
-//
-//        binding.plus.setOnClickListener {
-//            if (!binding.enteredValue.text.isEmpty()) binding.action.text = "+"
-//            if (!binding.result.text.isEmpty()) binding.enteredValue.text = ""
-//        }
-//        binding.minus.setOnClickListener { binding.action.text = "-" }
-//        binding.multiply.setOnClickListener { binding.action.text = "x" }
-//        binding.dev.setOnClickListener { binding.action.text = "÷" }
-//        binding.equally.setOnClickListener {
-//            if (binding.result.text.isEmpty()) {
-//
-//                binding.action.text = ""
-//            }
-//        }
-//        binding.clear.setOnClickListener {
-//            binding.action.text = ""
-//            binding.result.text = ""
-//            binding.enteredValue.text = ""
-//        }
-//
-//        binding.backspace.setOnClickListener{
-//            var res: String = binding.enteredValue.text.toString()
-//            if(res.isNotEmpty()){
-//            res = res.substring(0, res.length - 1)
-//            binding.enteredValue.text = res
-//            }
-//        }
-//
-//    }
