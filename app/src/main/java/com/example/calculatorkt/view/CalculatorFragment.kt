@@ -34,15 +34,20 @@ class CalculatorFragment : BaseFragment<FragmentCalculatorBinding, CalculatorVie
         binding.equally.setOnClickListener(this)
         binding.clear.setOnClickListener(this)
         binding.backspace.setOnClickListener(this)
+        binding.percent.setOnClickListener (this)
     }
 
     private fun setupObserve() {
         viewModel.resultLiveData.observe(viewLifecycleOwner) {
-            binding.result.text = it
+            binding.enteredValue.text = it
         }
 
         viewModel.mathLiveData.observe(viewLifecycleOwner) {
-            binding.enteredValue.text = it
+            binding.result.text = it
+        }
+
+        viewModel.operationLiveData.observe(viewLifecycleOwner) {
+            binding.action.text = it
         }
     }
 
