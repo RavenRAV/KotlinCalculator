@@ -5,31 +5,246 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Pref"
+        android:layout_margin="10dp"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vibration_container"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/vibration_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vibration"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/vibration_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vibration"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/vibration_icon"
+            app:layout_constraintTop_toTopOf="@id/vibration_icon"
+            app:layout_constraintBottom_toBottomOf="@id/vibration_icon"
+            android:layout_marginStart="15dp"/>
 
+        <CheckBox
+            android:id="@+id/vibration_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/vibration_icon"
+            app:layout_constraintBottom_toBottomOf="@id/vibration_icon"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/memory_container"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/memory_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vibration"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/memory_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/memory_buttons"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/memory_icon"
+            app:layout_constraintTop_toTopOf="@id/memory_icon"
+            app:layout_constraintBottom_toBottomOf="@id/memory_icon"
+            android:layout_marginStart="15dp"/>
 
+        <CheckBox
+            android:id="@+id/memory_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/memory_icon"
+            app:layout_constraintBottom_toBottomOf="@id/memory_icon"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/keyboard_container"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/keyboard_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vibration"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/keyboard_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/keyboard_layout"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/keyboard_icon"
+            app:layout_constraintTop_toTopOf="@id/keyboard_icon"
+            android:layout_marginStart="15dp"/>
 
+        <TextView
+            android:id="@+id/keyboard_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/keyboard_text"
+            android:text="@string/standard"
+            android:fontFamily="sans-serif-condensed-light"
+            app:layout_constraintStart_toStartOf="@+id/keyboard_text"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/theme_container"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/theme_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vibration"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/theme_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/theme"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/theme_icon"
+            app:layout_constraintTop_toTopOf="@id/theme_icon"
+            android:layout_marginStart="15dp"/>
 
+        <TextView
+            android:id="@+id/theme_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/theme_text"
+            android:text="@string/theme_red"
+            android:fontFamily="sans-serif-condensed-light"
+            app:layout_constraintStart_toStartOf="@+id/theme_text"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/format_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/format_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vibration"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/format_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/display_format"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/format_icon"
+            app:layout_constraintTop_toTopOf="@id/format_icon"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:id="@+id/format_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/format_text"
+            android:text="@string/_1_234_5"
+            android:fontFamily="sans-serif-condensed-light"
+            app:layout_constraintStart_toStartOf="@+id/format_text"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        android:paddingStart="30sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send_my_comments"
+        android:paddingStart="30sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_this_app"
+        android:paddingStart="30sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:paddingStart="30sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/other_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/other_apps"
+        android:paddingStart="30sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:paddingStart="30sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+
 </LinearLayout>

@@ -4,4 +4,18 @@
     <string name="close">Close</string>
     <string name="Pref">Preferences</string>
     <string name="vibration">Vibration</string>
+    <string name="memory_buttons">Memory buttons</string>
+    <string name="keyboard_layout">Keyboard layout</string>
+    <string name="theme">Theme</string>
+    <string name="standard">Standard</string>
+    <string name="theme_red">Theme Red</string>
+    <string name="display_format">Display format</string>
+    <string name="_1_234_5">1,234.5</string>
+    <string name="other">Other</string>
+    <string name="share">Share</string>
+    <string name="send_my_comments">Send my comments</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="update">Update</string>
+    <string name="other_apps">Other Apps</string>
+    <string name="about">About</string>
 </resources>

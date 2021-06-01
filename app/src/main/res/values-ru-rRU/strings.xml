@@ -5,4 +5,18 @@
     <string name="close">Закрыть</string>
     <string name="Pref">Предпочтения</string>
     <string name="vibration">Вибрация</string>
+    <string name="memory_buttons">Кнопки памяти</string>
+    <string name="keyboard_layout">Макет клавиатуры</string>
+    <string name="theme">Темы</string>
+    <string name="standard">Стандартный</string>
+    <string name="theme_red">Красная тема</string>
+    <string name="display_format">Формат отюражения</string>
+    <string name="_1_234_5">1,234.5</string>
+    <string name="other">Другое</string>
+    <string name="share">Поделиться</string>
+    <string name="send_my_comments">Оставить отзыв</string>
+    <string name="rate_this_app">Оценить приложение</string>
+    <string name="update">Обновить</string>
+    <string name="other_apps">Другие приложения</string>
+    <string name="about">О приложении</string>
 </resources>
